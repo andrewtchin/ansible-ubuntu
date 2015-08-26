@@ -1,0 +1,13 @@
+- name: Install dev tools
+  apt: pkg={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - ack-grep
+    - build-essential
+    - git
+    - python
+    - python-dev
+    - python-pip
+    - python-software-properties
+    - python-support
+    - zsh

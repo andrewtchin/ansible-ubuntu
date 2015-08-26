@@ -1,0 +1,5 @@
+# List of administrator accounts which should have access to libvirtd
+kvm_admins: [ '{{ username }}', '{{ deploy_username }}' ]
+
+# UNIX group that has access to libvirtd
+kvm_group: 'libvirtd'

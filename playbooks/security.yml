@@ -1,0 +1,13 @@
+---
+- name: Configure security.
+  hosts: '{{ target_hosts }}'
+  connection: ssh
+  remote_user: '{{ deploy_username }}'
+  roles:
+   - security
+   - fail2ban
+   - chkrootkit
+   - rkhunter
+   - clamav
+   - ipv6
+   - user-cleanup

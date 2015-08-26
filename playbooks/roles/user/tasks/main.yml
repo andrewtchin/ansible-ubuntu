@@ -1,0 +1,7 @@
+- name: Create user group
+  sudo: yes
+  group: name={{ username }} state=present
+
+- name: Create user user
+  sudo: yes
+  user: name={{ username }} password={{ password }} state=present group={{ username }} groups=sudo shell=/bin/bash

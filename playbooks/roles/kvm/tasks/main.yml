@@ -1,0 +1,38 @@
+- name: Install KVM-related packages
+  sudo: yes
+  apt:
+    name: '{{ item }}'
+    state: 'latest'
+    install_recommends: False
+  with_items:
+    - qemu-kvm
+    - libvirt-bin
+#    - qemu-system
+#    - qemu-utils
+#    - pm-utils
+#    - ebtables
+
+- name: Add administrators to libvirt and kvm group
+  sudo: yes
+  user:
+    name: '{{ item }}'
+    groups: '{{ kvm_group }}'
+    append: True
+  with_items: [ '{{ kvm_admins }}' ]
+  when: (kvm_admins is defined and kvm_admins)
+
+- name: Add bridge to /etc/network/interfaces and static eth0
+  sudo: yes
+  template: src=interfaces.j2 dest=/etc/network/interfaces owner=root group=root mode=0644
+
+- name: Add new IP to inventory
+  add_host: name={{ kvm.br0.address }} groups={{ reboot_hosts }}
+
+- name: Disable network-manager on restart
+  sudo: yes
+  service: name=network-manager enabled=no
+
+# not needed, interface config instead
+#- name: Configure bridged networking
+#  sudo: yes
+#  command: brctl addbr br0

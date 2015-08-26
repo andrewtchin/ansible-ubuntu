@@ -1,0 +1,31 @@
+<domain type='kvm'>
+  <name>vm1</name>
+  <title>vm1</title>
+  <description>vm1 desc</description>
+  <uuid>50895d53-e8a5-4444-bb9b-2133b6debef5</uuid>
+  <memory unit='MB'>1024</memory>
+  <currentMemory unit='MB'>1024</currentMemory>
+  <vcpu>1</vcpu>
+  <os>
+    <type>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+  </features>
+  <clock offset='utc'/>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <devices>
+    <emulator>/usr/bin/kvm</emulator>
+    <disk type='block' device='disk'>
+      <source dev='/dev/mapper/vg-vm1-lv'/>
+      <target dev='hda' bus='ide'/>
+    </disk>
+    <interface type='bridge'>
+      <mac address='52:54:00:00:01:89'/>
+      <source bridge='br0'/>
+    </interface>
+  </devices>
+</domain>

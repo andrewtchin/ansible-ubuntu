@@ -1,0 +1,11 @@
+- name: Install logwatch
+  apt: pkg=logwatch state=latest
+
+- name: Install weekly logwatch email
+  command: mv /etc/cron.daily/00logwatch /etc/cron.weekly/00logwatch creates=/etc/cron.weekly/00logwatch state=present
+
+- name: Remove daily logwatch email
+  file: path=/etc/cron.daily/00logwatch state=absent
+
+- name: Install logwatch.conf
+  template: src=etc/logwatch.conf.j2 dest=/etc/logwatch/conf/logwatch.conf owner=root group=root mode=0640 state=present

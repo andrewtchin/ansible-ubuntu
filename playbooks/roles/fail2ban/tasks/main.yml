@@ -1,0 +1,15 @@
+- name: Install fail2ban
+  sudo: yes
+  apt: pkg=fail2ban state=latest
+
+- name: Configure fail2ban
+  sudo: yes
+  template: src=jail.local.j2 dest=/etc/fail2ban/jail.local owner=root group=root mode=0644
+
+- name: restart fail2ban
+  sudo: yes
+  service: name=fail2ban state=restarted
+
+- name: Enable and start fail2ban
+  sudo: yes
+  service: name=fail2ban state=started enabled=yes

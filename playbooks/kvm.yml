@@ -1,0 +1,21 @@
+---
+- name: Configure KVM.
+  hosts: '{{ target_hosts }}'
+  connection: ssh
+  remote_user: '{{ deploy_username }}'
+  roles:
+    - kvm
+
+- name: Reboot.
+  hosts: '{{ target_hosts }}'
+  connection: ssh
+  remote_user: '{{ deploy_username }}'
+  roles:
+    - reboot
+
+- name: Deploy cleanup.
+  hosts: '{{ reboot_hosts }}'
+  connection: ssh
+  remote_user: '{{ deploy_username }}'
+  roles:
+    - deploy-cleanup

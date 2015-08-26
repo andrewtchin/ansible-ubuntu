@@ -1,0 +1,60 @@
+# Source: https://www.digitalocean.com/community/articles/how-to-use-rkhunter-to-guard-against-rootkits-on-an-ubuntu-vps
+
+# It is important to have the latest version of rkhunter installed because critical
+# security patches are added regularly. Ununtu repositories tend to get outdated,
+# so install from source
+
+- name: Install rkhunter from source
+  get_url:
+    url=http://downloads.sourceforge.net/project/rkhunter/rkhunter/{{rkhunter_version}}/rkhunter-{{rkhunter_version}}.tar.gz
+    dest=/tmp/rkhunter.tar.gz
+
+- name: Extract rkhunter
+  sudo: yes
+  command: tar -xzf rkhunter.tar.gz chdir=/tmp/ creates=/tmp/rkhunter-{{rkhunter_version}}
+
+- name: Install rkhunter
+  sudo: yes
+  command: ./installer.sh --layout /usr --install
+    chdir=/tmp/rkhunter-{{rkhunter_version}}
+  changed_when: false
+
+- name: Install rkhunter dependencies
+  sudo: yes
+  apt: pkg={{item}} state=present
+  with_items:
+    - binutils
+    - libreadline5
+    - ruby
+    - ssl-cert
+    - unhide.rb
+    - mailutils
+
+- name: Update rkhunter data files
+  sudo: yes
+  command: rkhunter --update
+  when: rkhunter_update|bool
+
+- name: Update rkhunter configuration
+  sudo: yes
+  template: src=etc_rkhunter.conf.j2 dest=/etc/rkhunter.conf owner=root group=root mode=0644
+
+# NOTE: This should only be run when config files are known to be good
+#- name: Set baseline file properties
+#  sudo: yes
+#  command: rkhunter --propupd
+#  when: rkhunter_propupd|bool
+#
+#- name: Run checks
+#  sudo: yes
+#  command: rkhunter -c --skip-keypress
+#  when: rkhunter_run_checks|bool
+#  ignore_errors: yes
+
+# TODO: Perform configuration check: sudo rkhunter -C
+# Right, now getting error output: "Unknown configuration file option: "
+# But rkhunter seems to be running correctly
+
+- name: Add cronjob for rkhunter
+  sudo: yes
+  copy: src=etc_cron.sh dest=/etc/cron.{{rkhunter_cron_frequency}}/rkhunter mode=0755

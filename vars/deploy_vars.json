@@ -1,0 +1,6 @@
+{
+    "deploy_username": "deploy",
+    "ssh": {
+        "port": "22"
+    }
+}
