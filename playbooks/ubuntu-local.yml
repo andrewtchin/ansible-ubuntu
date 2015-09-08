@@ -1,0 +1,9 @@
+---
+- name: Configure Ubuntu roles.
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  roles:
+    - common
+    - chrome
+    - firefox
