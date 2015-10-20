@@ -1,3 +1,6 @@
 {
-    "hostname": "ubuntu"
+    "hostname": "ubuntu",
+    "ssh": {
+        "port": "22"
+    }
 }
