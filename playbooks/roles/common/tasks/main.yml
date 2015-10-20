@@ -29,6 +29,10 @@
     - zip
     - zsh
 
+- name: Install exuberant-ctags (for vim taglist)
+  sudo: yes
+  apt: pkg=exuberant-ctags state=latest
+
 - name: Enable and start NTP service
   sudo: yes
   service: name=ntp state=started enabled=yes
