@@ -1,0 +1,7 @@
+- name: Install RCM repository
+  sudo: yes
+  apt_repository: repo='ppa:martin-frost/thoughtbot-rcm' update_cache=yes
+
+- name: Install RCM
+  sudo: yes
+  apt: pkg=rcm state=latest
