@@ -1,8 +1,6 @@
 ---
 - name: Configure Ubuntu roles.
-  hosts: '{{ target_hosts }}'
-  connection: ssh
-  remote_user: '{{ deploy_username }}'
+  hosts: all
   roles:
     - common
     - ssh
