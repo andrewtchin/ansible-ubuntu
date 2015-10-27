@@ -39,4 +39,4 @@
 
 - name: Change to zsh
   sudo: yes
-  command: 'chsh -s $(which zsh)'
+  shell: 'chsh -s $(which zsh)'
