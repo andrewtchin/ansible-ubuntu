@@ -36,3 +36,7 @@
 - name: Enable and start NTP service
   sudo: yes
   service: name=ntp state=started enabled=yes
+
+- name: Change to zsh
+  sudo: yes
+  command: 'chsh -s $(which zsh)'
