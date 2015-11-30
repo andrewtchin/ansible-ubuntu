@@ -1,0 +1,5 @@
+- name: Clone solarized repo
+  git: repo=https://github.com/andrewtchin/gnome-terminal-colors-solarized.git dest=~/gnome-terminal-colors-solarized
+
+- name: Set terminal solarized
+  shell: ~/gnome-terminal-colors-solarized/set_dark.sh
