@@ -12,7 +12,7 @@
 
 - name: Update all packages
   sudo: yes
-  apt: upgrade=dist
+  apt: upgrade=dist state=latest
 
 - name: Install system packages
   sudo: yes
