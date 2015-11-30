@@ -1,6 +1,7 @@
 ---
 - name: Configure Ubuntu roles.
-  hosts: all
+  gather_facts: yes
+
   roles:
     - common
     - ssh
