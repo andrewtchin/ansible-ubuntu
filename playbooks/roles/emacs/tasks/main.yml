@@ -1,0 +1,11 @@
+- name: Install emacs repository
+  sudo: yes
+  apt_repository: repo='ppa:ubuntu-elisp/ppa' update_cache=yes
+
+- name: Install emacs
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - emacs24
+    - emacs24-el
+    - emacs24-common-non-dfsg
