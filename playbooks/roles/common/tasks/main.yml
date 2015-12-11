@@ -28,6 +28,8 @@
     - vim
     - zip
     - zsh
+    - exfat-fuse
+    - exfat-utils
 
 - name: Install exuberant-ctags (for vim taglist)
   sudo: yes
