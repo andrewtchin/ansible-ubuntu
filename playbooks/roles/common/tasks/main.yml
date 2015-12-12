@@ -19,17 +19,17 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - bleachbit
-    - mosh
+    - exfat-fuse
+    - exfat-utils
     - ntp
     - sudo
     - sysstat
     - tmux
     - unzip
     - vim
+    - virt-manager
     - zip
     - zsh
-    - exfat-fuse
-    - exfat-utils
 
 - name: Install exuberant-ctags (for vim taglist)
   sudo: yes
