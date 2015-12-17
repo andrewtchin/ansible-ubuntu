@@ -1,0 +1,8 @@
+---
+- name: Configure Ubuntu roles.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - emacs
+    - developer-tools-apt
