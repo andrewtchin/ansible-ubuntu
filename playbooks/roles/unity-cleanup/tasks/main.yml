@@ -9,16 +9,16 @@
     - "{{ unity_remove_packages.stdout_lines }}"
 
 - name: Disable Unity Dash scopes
-  command: gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+  shell: gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
 - name: Set Unity search scopes
-  command: gsettings set com.canonical.Unity.Lenses always-search "['applications.scope']"
+  shell: gsettings set com.canonical.Unity.Lenses always-search "['applications.scope']"
 
 - name: Set Unity Dash scopes
-  command: gsettings set com.canonical.Unity.Dash scopes "['home.scope', 'applications.scope', 'files.scope']";
+  shell: gsettings set com.canonical.Unity.Dash scopes "['home.scope', 'applications.scope', 'files.scope']";
 
 - name: Disable Unity online search results
-  command: gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
+  shell: gsettings set com.canonical.Unity.Lenses remote-content-search 'none'
 
 - name: Set Unity Launcher icons
-  command: gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://nautilus.desktop', 'application://gnome-terminal.desktop', 'application://firefox.desktop', 'application://google-chrome.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
+  shell: gsettings set com.canonical.Unity.Launcher favorites "['application://ubiquity.desktop', 'application://nautilus.desktop', 'application://gnome-terminal.desktop', 'application://firefox.desktop', 'application://google-chrome.desktop', 'unity://running-apps', 'unity://expo-icon', 'unity://devices']"
