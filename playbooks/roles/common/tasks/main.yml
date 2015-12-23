@@ -19,8 +19,10 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - bleachbit
+    - cryptsetup
     - exfat-fuse
     - exfat-utils
+    - lvm2
     - ntp
     - sudo
     - sysstat
