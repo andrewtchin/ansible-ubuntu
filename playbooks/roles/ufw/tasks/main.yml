@@ -1,0 +1,8 @@
+- name: Enable UFW with default deny
+  ufw: state=enabled policy=deny
+
+- name: Enable logging
+  ufw: logging=on
+
+- name: Allow SSH 22/tcp
+  ufw: rule=allow port=22 proto=tcp
