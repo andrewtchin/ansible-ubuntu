@@ -6,7 +6,7 @@
 
 Base
 ```
-ansible-playbook -vvv playbooks/ubuntu.yml --ask-sudo-pass --extra-vars=@vars/deploy_vars.json
+ansible-playbook -vvv playbooks/ubuntu.yml --ask-sudo-pass --extra-vars=@vars/ubuntu.json
 ```
 
 Developer
