@@ -1,12 +1,14 @@
 - name: Determine Unity packages to remove
   shell: dpkg --get-selections | cut -f1 | grep -P "^unity-(lens|scope)-" | grep -vP "unity-(lens|scope)-(home|applications|files)"
   register: unity_remove_packages
+  ignore_errors: yes
 
 - name: Remove Unity packages
   sudo: yes
   apt: pkg={{ item }} state=absent
   with_items:
     - "{{ unity_remove_packages.stdout_lines }}"
+  ignore_errors: yes
 
 - name: Disable Unity Dash scopes
   shell: gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
