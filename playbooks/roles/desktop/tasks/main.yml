@@ -1,0 +1,14 @@
+- name: Install system packages
+  sudo: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - exfat-fuse
+    - exfat-utils
+    - virt-manager
+
+- name: Install exuberant-ctags (for vim taglist)
+  sudo: yes
+  apt: pkg=exuberant-ctags state=latest
+
+- name: Map CAPS to ESC
+  shell: dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
