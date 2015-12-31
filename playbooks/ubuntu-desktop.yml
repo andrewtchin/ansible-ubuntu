@@ -1,5 +1,5 @@
 ---
-- name: Configure Ubuntu roles.
+- name: Configure Ubuntu Desktop.
   hosts: all
   gather_facts: yes
 
