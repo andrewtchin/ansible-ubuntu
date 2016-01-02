@@ -6,6 +6,10 @@
   sudo: yes
   lineinfile: dest=/etc/hosts regexp='^127.0.1.1' line='127.0.1.1 {{ hostname }}'
 
+- name: Remove CD source
+  sudo: yes
+  replace: dest=/etc/apt/sources.list regexp='^deb cdrom:' replace='# deb cdrom:'
+
 - name: Update apt cache
   sudo: yes
   apt: update_cache=yes cache_valid_time=3600
