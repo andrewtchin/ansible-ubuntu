@@ -26,6 +26,7 @@
     - cryptsetup
     - lvm2
     - ntp
+    - rng-tools
     - sudo
     - sysstat
     - tmux
