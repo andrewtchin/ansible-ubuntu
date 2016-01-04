@@ -4,6 +4,7 @@
   with_items:
     - exfat-fuse
     - exfat-utils
+    - network-manager-openvpn
     - virt-manager
 
 - name: Map CAPS to ESC
