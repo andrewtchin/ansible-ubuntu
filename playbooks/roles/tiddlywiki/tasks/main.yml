@@ -1,3 +1,4 @@
 - name: Install TiddlyWiki
   sudo: yes
   npm: name=tiddlywiki global=yes state=present
+  when: "ansible_distribution_version" == "15.04"
