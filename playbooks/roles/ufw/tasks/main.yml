@@ -6,6 +6,6 @@
   sudo: yes
   ufw: logging=on
 
-- name: Allow SSH 22/tcp
+- name: Allow SSH
   sudo: yes
-  ufw: rule=allow port=22 proto=tcp
+  ufw: rule=allow port={{ ssh_port }} proto=tcp
