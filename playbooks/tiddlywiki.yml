@@ -1,0 +1,10 @@
+---
+- name: Install Tiddlywiki.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - common
+    - ssh
+    - nodejs
+    - tiddlywiki
