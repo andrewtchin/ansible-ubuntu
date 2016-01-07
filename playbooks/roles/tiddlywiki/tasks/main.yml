@@ -1,0 +1,3 @@
+- name: Install TiddlyWiki
+  sudo: yes
+  npm: name=tiddlywiki global=yes state=present
