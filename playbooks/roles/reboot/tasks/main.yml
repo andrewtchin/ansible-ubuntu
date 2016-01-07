@@ -8,6 +8,6 @@
 - name: Wait for boot
   sudo: no
   local_action: wait_for host={{ item }}
-                port={{ ssh.port }}
+                port={{ ssh_port }}
                 state=started
   with_items: groups['{{ reboot_hosts }}']
