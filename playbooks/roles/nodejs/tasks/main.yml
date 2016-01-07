@@ -1,8 +1,8 @@
 - name: Add nodesource
   shell: curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
-  when: "{{ ansible_distribution_version }}" == "15.04"
+  when: ansible_distribution_version == "15.04"
 
 - name: Install nodejs
   sudo: yes
   apt: pkg=nodejs state=present
-  when: "{{ ansible_distribution_version }}" == "15.04"
+  when: ansible_distribution_version == "15.04"
