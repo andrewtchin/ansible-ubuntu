@@ -28,7 +28,7 @@ ansible-playbook -vvv playbooks/kvm-host.yml --ask-sudo-pass --extra-vars=@vars/
 
 ### kvm-client
 ```
-ansible-playbook -vvv playbooks/kvm-client--ask-sudo-pass
+ansible-playbook -vvv playbooks/kvm-client.yml --ask-sudo-pass
 ```
 
 ## TODO
