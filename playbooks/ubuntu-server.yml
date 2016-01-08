@@ -6,7 +6,6 @@
   roles:
     - common
     - ssh
-    - nut
     - rcm
     - solarized
     - ufw

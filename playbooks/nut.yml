@@ -1,0 +1,7 @@
+---
+- name: Configure NUT slave.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - nut
