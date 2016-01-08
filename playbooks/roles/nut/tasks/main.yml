@@ -6,15 +6,15 @@
   sudo: yes
   lineinfile: >
     dest=/etc/nut/nut.conf
-    regexp=^MODE=none
-    line=MODE=netclient
+    regexp="^MODE=none"
+    line="MODE=netclient"
     state=present
 
 - name: Configure upsmon
   sudo: yes
   lineinfile: >
     dest=/etc/nut/upsmon.conf
-    line=MONITOR {{ ups_name }}@{{ ups_ip }} 1 {{ ups_user }} {{ ups_password }} slave
+    line="MONITOR {{ ups_name }}@{{ ups_ip }} 1 {{ ups_user }} {{ ups_password }} slave"
     state=present
 
 - name: Restart nut-client
