@@ -1,9 +1,17 @@
-- name: Install KVM
+- name: Install X2Go repository
   sudo: yes
-  apt:
+  apt_repository: repo='ppa:x2go/stable' update_cache=yes
+
+- name: Install X2Go
+  sudo: yes
+  apt: >
     name: '{{ item }}'
     state: 'latest'
   with_items:
-    - qemu-kvm
-    - libvirt-bin
-    - bridge-utils
+    - x2goserver
+    - x2goserver-xsession
+
+- name: Install xfce desktop
+  sudo: yes
+  apt: name=xfce4 state=latest
+  when: remote

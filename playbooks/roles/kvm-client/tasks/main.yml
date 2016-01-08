@@ -1,0 +1,8 @@
+- name: Install KVM desktop client
+  sudo: yes
+  apt: >
+    name: '{{ item }}'
+    state: 'latest'
+  with_items:
+    - virt-manager
+    - x2goclient
