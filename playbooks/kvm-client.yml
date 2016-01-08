@@ -1,0 +1,7 @@
+---
+- name: KVM client.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - kvm-client
