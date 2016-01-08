@@ -1,4 +1,8 @@
 {
     "hostname": "ubuntu",
-    "ssh_port": "22"
+    "ssh_port": "22",
+    "ups_name": "ups",
+    "ups_ip": "127.0.0.1",
+    "ups_user": "upsremote",
+    "ups_password": "password"
 }
