@@ -1,0 +1,7 @@
+---
+- name: KVM host.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - kvm-host
