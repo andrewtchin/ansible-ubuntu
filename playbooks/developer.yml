@@ -1,5 +1,5 @@
 ---
-- name: Configure Ubuntu roles.
+- name: Developer tools.
   hosts: all
   gather_facts: yes
 
