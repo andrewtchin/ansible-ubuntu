@@ -1,7 +1,0 @@
----
-- name: Configure for deploy.
-  hosts: localhost
-  connection: local
-  roles:
-    - ssh
-    - deploy

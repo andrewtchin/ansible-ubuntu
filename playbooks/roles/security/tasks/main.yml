@@ -1,27 +1,3 @@
-# Updates
-- name: Update apt cache
-  sudo: yes
-  apt: update_cache=yes cache_valid_time=3600
-
-- name: Update all packages
-  sudo: yes
-  apt: upgrade=dist
-
-- name: Install unattended-upgrades
-  sudo: yes
-  apt: pkg=unattended-upgrades state=present
-
-- name: Enable automatic updates
-  sudo: yes
-  copy: src=apt_periodic dest=/etc/apt/apt.conf.d/10periodic
-
-- name: Make sure unattended-upgrades only installs from ubuntu release security
-  lineinfile: dest=/etc/apt/apt.conf.d/50unattended-upgrades regexp="{{ ubuntu_release }}-updates" state=absent
-
-- name: Install debsums
-  sudo: yes
-  apt: pkg=debsums state=present
-
 - name: Disable root account
   sudo: yes
   command: passwd -dl root
@@ -33,30 +9,10 @@
 #- name: Remove sudo rights from group sudo
 #  lineinfile: dest=/etc/sudoers regexp="^%sudo" state=absent
 
-
-# Set up UFW, allow only SSH
-- name: UFW Default rule deny all
-  sudo: yes
-  ufw: policy=deny
-
-- name: UFW Allow SSH - TCP 22 - rate limit
-  sudo: yes
-  ufw: rule=limit proto=tcp to_port=22
-
-- name: UFW reload
-  sudo: yes
-  ufw: state=reloaded
-
-- name: Enable ufw service
-  sudo: yes
-  service: name=ufw state=started enabled=yes
-
-
 # Configure networking
 - name: Install sysctl.conf
   sudo: yes
   copy: src=sysctl.conf dest=/etc/sysctl.conf
-
 
 # Disable services
 - name: Disable cups

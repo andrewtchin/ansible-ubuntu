@@ -25,6 +25,7 @@
     - bleachbit
     - cryptsetup
     - curl
+    - debsums
     - lvm2
     - ntp
     - rng-tools
