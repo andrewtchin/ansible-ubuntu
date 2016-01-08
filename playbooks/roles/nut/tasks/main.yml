@@ -20,3 +20,5 @@
 - name: Restart nut-client
   sudo: yes
   service: name=nut-client state=restarted
+
+# upsc <ups_name>@<ups_ip>
