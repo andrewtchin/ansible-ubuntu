@@ -17,6 +17,7 @@
 - name: Install Cozy
   sudo: yes
   apt: pkg=cozy state=latest
+  when: {{ ansible_distribution_release }} == "trusty"
 
 - name: Restart nginx
   sudo: yes
