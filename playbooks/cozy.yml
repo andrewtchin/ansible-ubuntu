@@ -1,0 +1,10 @@
+---
+- name: Install Cozy.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - common
+    - ufw
+    - ssh
+    - cozy

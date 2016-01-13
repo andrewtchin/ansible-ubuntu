@@ -36,5 +36,10 @@ ansible-playbook -vvv playbooks/kvm-client.yml --ask-sudo-pass
 ansible-playbook -vvv playbooks/nut.yml --ask-sudo-pass --extra-vars=@vars/nut.json
 ```
 
+### cozy
+```
+ansible-playbook -vvv playbooks/cozy.yml --ask-sudo-pass
+```
+
 ## TODO
  - Generate new /etc/ssh/moduli
