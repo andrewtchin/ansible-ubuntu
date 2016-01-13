@@ -12,12 +12,12 @@
 - name: Install Cozy repo
   sudo: yes
   apt_repository: repo='deb https://ubuntu.cozycloud.cc/debian {{ ansible_distribution_release }} main' state=present
-  when: "{{ ansible_distribution_release }}" == "trusty"
+  when: ansible_distribution_release == "trusty"
 
 - name: Install Cozy
   sudo: yes
   apt: pkg=cozy state=latest
-  when: "{{ ansible_distribution_release }}" == "trusty"
+  when: ansible_distribution_release == "trusty"
 
 - name: Restart nginx
   sudo: yes
