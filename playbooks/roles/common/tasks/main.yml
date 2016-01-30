@@ -29,6 +29,7 @@
     - lvm2
     - ntp
     - rng-tools
+    - smartmontools
     - sudo
     - sysstat
     - tmux
