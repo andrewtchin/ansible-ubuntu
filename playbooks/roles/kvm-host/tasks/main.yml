@@ -4,6 +4,7 @@
   with_items:
   - qemu-kvm
   - libvirt-bin
+  - bridge-utils
 
 - name: Install X2Go repository
   sudo: yes
