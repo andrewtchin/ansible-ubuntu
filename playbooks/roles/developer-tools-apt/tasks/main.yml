@@ -10,3 +10,6 @@
     - python-pip
     - python-software-properties
     - python-support
+
+- name: Create github directory
+  file: path={{ ansible_env.HOME }}/github state=directory mode=0755
