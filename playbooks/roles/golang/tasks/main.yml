@@ -1,0 +1,7 @@
+- name: "Install golang repo"
+  sudo: yes
+  apt_repository: "ppa:ubuntu-lxc/lxd-stable"
+
+- name: "Install golang"
+  sudo: yes
+  apt: name=golang update_cache=yes
