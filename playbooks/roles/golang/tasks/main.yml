@@ -7,4 +7,4 @@
   apt: name=golang update_cache=yes
 
 - name: "Create go directory"
-  file: path={{ ansible_env.HOME }}/go state=directory mode=0755
+  file: path={{ ansible_env.HOME }}/go/src/github.com state=directory mode=0755
