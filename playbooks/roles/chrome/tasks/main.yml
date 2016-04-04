@@ -7,7 +7,8 @@
 
 - name: "Install Google Chrome repo"
   sudo: yes
-  apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present
+  command: sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+
 
 - name: "Install Google Chrome"
   sudo: yes
