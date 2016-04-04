@@ -1,0 +1,5 @@
+- name: "Create github directory"
+  file: path={{ ansible_env.HOME }}/github state=directory mode=0755
+
+- name: "Create go directory"
+  file: path={{ ansible_env.HOME }}/go/src/github.com state=directory mode=0755

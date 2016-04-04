@@ -1,0 +1,11 @@
+---
+- name: Developer tools for VMware.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - developer-tools-apt
+    - golang
+    - docker
+    - hostname set_hostname=CORPORATE
+    - dev-directory

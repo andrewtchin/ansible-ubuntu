@@ -14,6 +14,11 @@ Developer
 ansible-playbook -vvv playbooks/developer.yml --ask-sudo-pass
 ```
 
+Work
+```
+ansible-playbook -vvv playbooks/work-vmware.yml --ask-sudo-pass
+```
+
 ## Playbooks
 
 ### tiddlywiki

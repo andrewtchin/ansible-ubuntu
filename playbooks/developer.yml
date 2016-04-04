@@ -6,4 +6,3 @@
   roles:
     - emacs
     - developer-tools-apt
-    - golang
