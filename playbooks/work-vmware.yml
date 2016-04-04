@@ -7,5 +7,5 @@
     - developer-tools-apt
     - golang
     - docker
-    - hostname set_hostname=CORPORATE
+    - set-hostname set_hostname=CORPORATE
     - dev-directory

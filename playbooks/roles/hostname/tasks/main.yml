@@ -1,5 +1,0 @@
-- name: "Set hostname"
-  hostname: name={{ set_hostname }}
-
-- name: "Update hosts"
-  lineinfile: dest=/etc/hosts line='127.0.1.1 {{ set_hostname }}' owner=root group=root mode=0644
