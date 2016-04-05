@@ -2,6 +2,14 @@
   sudo: yes
   lineinfile: dest=/etc/hosts line='127.0.1.1 {{ set_hostname }}' owner=root group=root mode=0644
 
+- name: "Remove current host from /etc/hostname"
+  sudo: yes
+  lineinfile: dest=/etc/hostname line={{ ansible_hostname }} state=absent
+
+- name: "Set /etc/hostname"
+  sudo: yes
+  lineinfile: dest=/etc/hostname line='{{ set_hostname }}' owner=root group=root mode=0644
+
 - name: "Set hostname"
   sudo: yes
   hostname: name={{ set_hostname }}
