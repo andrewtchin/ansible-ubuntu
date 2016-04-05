@@ -6,6 +6,5 @@
   roles:
     - developer-tools-apt
     - golang
-    - docker
     - set-hostname set_hostname=CORPORATE
     - dev-directory

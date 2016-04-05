@@ -1,2 +1,0 @@
-- name: "Install Docker"
-  command: wget -qO- https://get.docker.com/ | sh
