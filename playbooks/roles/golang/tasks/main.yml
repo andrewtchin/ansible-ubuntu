@@ -1,6 +1,6 @@
 - name: "Install golang repo"
   sudo: yes
-  apt_repository: repo="ppa:ubuntu-lxc/lxd-stable"
+  apt_repository: repo="ppa:ubuntu-lxc/lxd-stable" mode=0644
 
 - name: "Install golang"
   sudo: yes
