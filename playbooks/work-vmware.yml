@@ -6,5 +6,5 @@
   roles:
     - developer-tools-apt
     - golang
-    - set-hostname set_hostname=CORPORATE
     - dev-directory
+    - { role: set-hostname,  set_hostname: "CORPORATE" }
