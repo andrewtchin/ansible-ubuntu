@@ -1,0 +1,16 @@
+- name: Create vim colors dir
+  file: path="~/.vim/colors" state=directory
+
+- name: Install vim solarized colors
+  copy: src=solarized.vim dest="~/.vim/colors/solarized.vim" mode=0644
+
+- name: Install vim
+  apt: pkg={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - vim
+
+- name: Install exuberant-ctags (for vim taglist)
+  sudo: yes
+  apt: pkg=exuberant-ctags state=latest
+

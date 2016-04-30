@@ -1,5 +1,5 @@
-- name: Install system packages
-  sudo: yes
+- name: Install desktop packages
+  become: yes
   apt: pkg={{ item }} state=latest
   with_items:
     - exfat-fuse

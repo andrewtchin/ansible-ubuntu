@@ -4,5 +4,5 @@
   gather_facts: yes
 
   roles:
-    - emacs
+    - dev-directory
     - developer-tools-apt

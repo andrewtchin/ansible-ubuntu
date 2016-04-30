@@ -1,10 +1,18 @@
-- name: "Install golang repo"
-  sudo: yes
-  apt_repository: repo="ppa:ubuntu-lxc/lxd-stable" mode=0644
+- name: Download the Go tarball
+  get_url: url=https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
+           dest=/tmp/go1.6.2.linux-amd64.tar.gz
+           checksum=sha256:e40c36ae71756198478624ed1bb4ce17597b3c19d243f3f0899bb5740d56212a
 
-- name: "Install golang"
-  sudo: yes
-  apt: name=golang update_cache=yes
+- name: Register the current Go version (if any)
+  command: /usr/local/go/bin/go version
+  ignore_errors: yes
+  register: go_version
+  changed_when: false
+
+- name: Extract the Go tarball if Go is not yet installed or not the desired version
+  unarchive: src=/tmp/go1.6.2.linux-amd64.tar.gz
+             dest=/usr/local
+             copy=no
 
 - name: "Create go directory"
   file: path={{ ansible_env.HOME }}/go/src/github.com state=directory mode=0755

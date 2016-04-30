@@ -1,0 +1,17 @@
+---
+- name: Configure headless Ubuntu development machine.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - common
+    - rcm
+    - set-hostname
+    - solarized
+    - ssh
+    - vim
+    - dev-directory
+    - developer-tools-apt
+    - emacs
+    - python
+    - golang

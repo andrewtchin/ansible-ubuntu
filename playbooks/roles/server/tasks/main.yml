@@ -1,0 +1,6 @@
+- name: Install server packages
+  become: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - smartmontools
+    - rng-tools

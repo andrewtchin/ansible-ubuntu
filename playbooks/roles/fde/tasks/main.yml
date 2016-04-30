@@ -1,0 +1,6 @@
+- name: Install tools for FDE
+  become: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - cryptsetup
+    - lvm2

@@ -5,11 +5,13 @@
 
   roles:
     - common
-    - desktop
+    - rcm
+    - set-hostname
+    - solarized
     - ssh
+    - ufw
+    - vim
+    - desktop
     - chrome
     - firefox
-    - rcm
-    - solarized
     - unity-cleanup
-    - ufw

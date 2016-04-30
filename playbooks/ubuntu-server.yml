@@ -5,7 +5,11 @@
 
   roles:
     - common
-    - ssh
     - rcm
+    - set-hostname
     - solarized
+    - ssh
     - ufw
+    - vim
+    - server
+    - fde

@@ -1,0 +1,25 @@
+- name: Update pip via easy_install
+  become: yes
+  shell: easy_install --upgrade pip
+
+- name: Install python
+  apt: pkg={{ item }} state=latest
+  become: yes
+  with_items:
+    - python
+    - python-dev
+    - python-pip
+    - python-software-properties
+    - python-support
+
+- name: Install python packages
+  pip: name={{ item }} state=latest
+  become: yes
+  with_items:
+    - awscli
+    - boto
+    - flake8
+    - ipdb
+    - ipython
+    - pylint
+    - virtualenv

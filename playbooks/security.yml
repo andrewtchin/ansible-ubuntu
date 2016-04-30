@@ -5,9 +5,3 @@
   remote_user: '{{ deploy_username }}'
   roles:
    - security
-   - fail2ban
-   - chkrootkit
-   - rkhunter
-   - clamav
-   - ipv6
-   - user-cleanup
