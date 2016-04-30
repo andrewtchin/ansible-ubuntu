@@ -6,3 +6,6 @@
   roles:
     - dev-directory
     - developer-tools-apt
+    - emacs
+    - python
+    - golang
