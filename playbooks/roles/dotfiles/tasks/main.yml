@@ -1,8 +1,2 @@
 - name: Clone andrewtchin dotfiles
   git: repo=https://github.com/andrewtchin/dotfiles dest=~/.dotfiles recursive=yes
-
-- name: Run RCM to setup dotfiles
-  shell: rcup -f
-  environment:
-    - RCRC: "~/.dotfiles/rcrc"
-  when: rcm_installed
