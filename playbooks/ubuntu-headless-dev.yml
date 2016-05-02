@@ -12,6 +12,7 @@
     - vim
     - dev-directory
     - developer-tools-apt
+    - dotfiles
     - emacs
     - python-setuptools
     - python
