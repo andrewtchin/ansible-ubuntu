@@ -1,9 +1,9 @@
 - name: Install emacs repository
-  sudo: yes
-  apt_repository: repo='ppa:ubuntu-elisp/ppa' update_cache=yes
+  become: yes
+  apt_repository: repo='ppa:ubuntu-elisp/ppa' update_cache=yes mode=0644
 
 - name: Install emacs
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=latest
   with_items:
     - emacs24

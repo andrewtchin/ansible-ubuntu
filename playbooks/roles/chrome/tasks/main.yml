@@ -2,14 +2,13 @@
 # via http://linuxg.net/how-to-install-google-chrome-42-stable-on-the-most-popular-linux-systems-via-the-official-google-repository/
 
 - name: "Install Google Linux signing key"
-  sudo: yes
-  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+  become: yes
+  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present mode=0644
 
 - name: "Install Google Chrome repo"
-  sudo: yes
+  become: yes
   command: sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 
-
 - name: "Install Google Chrome"
-  sudo: yes
+  become: yes
   apt: name=google-chrome-stable update_cache=yes
