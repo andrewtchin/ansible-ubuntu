@@ -13,5 +13,6 @@
     - dev-directory
     - developer-tools-apt
     - emacs
+    - python-setuptools
     - python
     - golang
