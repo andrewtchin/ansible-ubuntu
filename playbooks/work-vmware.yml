@@ -8,3 +8,4 @@
     - golang
     - dev-directory
     - { role: set-hostname,  set_hostname: "CORPORATE" }
+    - docker-systemd-vmware
