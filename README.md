@@ -19,6 +19,12 @@ Work
 ansible-playbook -vvv playbooks/work-vmware.yml --ask-sudo-pass
 ```
 
+Work Docker Fix
+```
+ansible-playbook -vvv playbooks/vmware-docker.yml --ask-sudo-pass
+```
+
+
 ## Playbooks
 
 ### tiddlywiki
