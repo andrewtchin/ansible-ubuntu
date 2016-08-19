@@ -8,4 +8,4 @@
 
 - name: Allow SSH rate limited
   become: yes
-  ufw: rule=limit direction=incoming port={{ ssh_port }} proto=tcp
+  ufw: rule=limit direction=in from_ip=any to_ip=any port={{ ssh_port }} proto=tcp
