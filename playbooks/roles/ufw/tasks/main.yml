@@ -4,7 +4,7 @@
 
 - name: Enable UFW logging
   sudo: yes
-  ufw: logging=on
+  ufw: logging=on direction=incoming
 
 - name: Allow SSH rate limited
   sudo: yes
