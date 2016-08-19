@@ -1,11 +1,11 @@
 - name: Enable UFW with default reject
-  sudo: yes
+  become: yes
   ufw: state=enabled direction=incoming policy=reject log=yes
 
 - name: Enable UFW logging
-  sudo: yes
+  become: yes
   ufw: logging=on direction=incoming
 
 - name: Allow SSH rate limited
-  sudo: yes
+  become: yes
   ufw: rule=limit direction=incoming port={{ ssh_port }} proto=tcp

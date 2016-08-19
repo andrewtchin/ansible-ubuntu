@@ -6,11 +6,11 @@
 
 - name: Install vim
   apt: pkg={{ item }} state=latest
-  sudo: yes
+  become: yes
   with_items:
     - vim
 
 - name: Install exuberant-ctags (for vim taglist)
-  sudo: yes
+  become: yes
   apt: pkg=exuberant-ctags state=latest
 

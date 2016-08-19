@@ -1,9 +1,9 @@
 - name: Add nginx apt key
-  sudo: yes
+  become: yes
   apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
 
 - name: Add nginx repo
-  sudo: yes
+  become: yes
   lineinfile: >
     dest=/etc/apt/sources.list
     line="deb http://nginx.org/packages/ubuntu/ {{ ansible_distribution_release }} nginx"

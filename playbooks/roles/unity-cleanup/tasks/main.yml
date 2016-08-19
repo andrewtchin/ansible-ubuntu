@@ -4,7 +4,7 @@
   ignore_errors: yes
 
 - name: Remove Unity packages
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=absent
   with_items:
     - "{{ unity_remove_packages.stdout_lines }}"

@@ -3,6 +3,6 @@
   when: ansible_distribution_version == "15.04"
 
 - name: Install nodejs
-  sudo: yes
+  become: yes
   apt: pkg=nodejs state=present
   when: ansible_distribution_version == "15.04"

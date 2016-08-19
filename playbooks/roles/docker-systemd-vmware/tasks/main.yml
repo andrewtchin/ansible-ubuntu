@@ -1,11 +1,11 @@
 - name: Install docker environment file
-  sudo: yes
+  become: yes
   copy: src="docker" dest="/etc/default/docker" owner=root group=root mode=0644
 
 - name: Create systemd docker dropin directory
-  sudo: yes
+  become: yes
   file: path="/etc/systemd/system/docker.service.d" state=directory mode=0755
 
 - name: Configure systemd docker
-  sudo: yes
+  become: yes
   copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644

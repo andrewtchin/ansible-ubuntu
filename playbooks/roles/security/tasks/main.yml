@@ -1,9 +1,9 @@
 - name: Disable root account
-  sudo: yes
+  become: yes
   command: passwd -dl root
 
 - name: Limit access to su to only admin group
-  sudo: yes
+  become: yes
   command: dpkg-statoverride --update --force --add root admin 4750 /bin/su
 
 #- name: Remove sudo rights from group sudo
@@ -11,47 +11,47 @@
 
 # Configure networking
 - name: Install sysctl.conf
-  sudo: yes
+  become: yes
   copy: src=sysctl.conf dest=/etc/sysctl.conf
 
 # Disable services
 - name: Disable cups
-  sudo: yes
+  become: yes
   service: name=cups state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable cups-browsed
-  sudo: yes
+  become: yes
   service: name=cups-browsed state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable bluetooth
-  sudo: yes
+  become: yes
   service: name=bluetooth state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable sane.d
-  sudo: yes
+  become: yes
   service: name=saned state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable avahi-daemon
-  sudo: yes
+  become: yes
   service: name=avahi-daemon state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable xinetd
-  sudo: yes
+  become: yes
   service: name=xinetd state=stopped enabled=no
   ignore_errors: yes
 
 - name: Disable inetd
-  sudo: yes
+  become: yes
   service: name=inetd state=stopped enabled=no
   ignore_errors: yes
 
 - name: Uninstall tftp
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=absent
   with_items:
     - tftp-hpa
@@ -63,12 +63,12 @@
   ignore_errors: yes
 
 - name: Uninstall nis (ypserv)
-  sudo: yes
+  become: yes
   apt: pkg=nis state=absent
   ignore_errors: yes
 
 - name: Uninstall telnet
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=absent
   with_items:
     - telnet
@@ -82,7 +82,7 @@
   ignore_errors: yes
 
 - name: Uninstall RSH
-  sudo: yes
+  become: yes
   apt: pkg={{ item }} state=absent
   with_items:
     - rsh-client
