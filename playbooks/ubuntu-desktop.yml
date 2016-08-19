@@ -1,16 +1,11 @@
 ---
+- include: common.yml
+
 - name: Configure Ubuntu Desktop.
   hosts: all
   gather_facts: yes
 
   roles:
-    - common
-    - rcm
-    - set-hostname
-    - solarized
-    - ssh
-    - ufw
-    - vim
     - desktop-apt
     - remap-esc
     - chrome

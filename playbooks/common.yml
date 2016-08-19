@@ -1,0 +1,12 @@
+---
+- name: Common roles.
+  hosts: all
+
+  roles:
+    - common
+    - rcm
+    - set-hostname
+    - solarized
+    - ssh
+    - ufw
+    - vim

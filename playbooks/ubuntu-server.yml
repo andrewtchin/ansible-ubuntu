@@ -1,15 +1,10 @@
 ---
+- include: common.yml
+
 - name: Configure Ubuntu Server.
   hosts: all
   gather_facts: yes
 
   roles:
-    - common
-    - rcm
-    - set-hostname
-    - solarized
-    - ssh
-    - ufw
-    - vim
     - server
     - fde
