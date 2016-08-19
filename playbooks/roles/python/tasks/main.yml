@@ -10,6 +10,7 @@
     - python-dev
     - python-pip
     - python-software-properties
+    - python-setuptools
 
 - name: Install python packages
   pip: name={{ item }} state=latest

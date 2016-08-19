@@ -1,0 +1,3 @@
+- name: Install docker
+  become: yes
+  command: wget -qO- https://get.docker.com/ | sh

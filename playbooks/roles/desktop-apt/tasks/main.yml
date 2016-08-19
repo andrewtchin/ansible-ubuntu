@@ -6,7 +6,3 @@
     - exfat-utils
     - network-manager-openvpn
     - virt-manager
-
-- name: Map CAPS to ESC
-  shell: dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
-  ignore_errors: yes

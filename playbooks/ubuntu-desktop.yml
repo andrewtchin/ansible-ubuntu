@@ -11,7 +11,8 @@
     - ssh
     - ufw
     - vim
-    - desktop
+    - desktop-apt
+    - remap-esc
     - chrome
     - firefox
     - unity-cleanup

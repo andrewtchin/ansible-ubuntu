@@ -1,3 +1,0 @@
-- name: Install setuptools
-  become: yes
-  apt: pkg=python-setuptools state=latest
