@@ -15,7 +15,7 @@
 
 - name: Extract the Go tarball if Go is not yet installed or not the desired version
   become: yes
-  unarchive: src=/tmp/go1.6.3.linux-amd64.tar.gz
+  unarchive: src=/tmp/go1.7.linux-amd64.tar.gz
              dest=/usr/local
              copy=no
 
