@@ -1,13 +1,9 @@
 ---
-- name: Developer tools for VMware.
+- include: developer.yml
+
+- name: VMware work customizations.
   hosts: all
   gather_facts: yes
 
   roles:
-    - dev-directory
-    - developer-tools-apt
-    - docker
     - docker-systemd-vmware
-    - emacs
-    - golang
-    - { role: set-hostname,  set_hostname: "CORPORATE" }
