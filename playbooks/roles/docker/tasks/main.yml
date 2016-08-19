@@ -1,3 +1,7 @@
 - name: Install docker
   become: yes
   command: wget -qO- https://get.docker.com/ | sh
+
+- name: Add non-root user to docker group
+  become: yes
+  command: usermod -aG docker {{ ansible_user_id }}
