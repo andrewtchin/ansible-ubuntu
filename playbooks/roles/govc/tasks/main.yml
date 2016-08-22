@@ -3,14 +3,16 @@
            dest=/tmp/govc_linux_amd64.gz
            checksum=sha1:367ce7e96126214ab76af22376eacdccb31dc869
 
-- name: Extract the govc tarball
+- name: Uncompress govc
   become: yes
-  unarchive: src=/tmp/govc_linux_amd64.gz
-             dest=/usr/local/bin/govc
-             copy=no
+  command: gzip -d /tmp/govc_linux_amd64.gz
 
 - name: chmod +x govc
   become: yes
-  file: path=/usr/local/bin/govc
+  file: path=/tmp/govc_linux_amd64.gz
         state=file
         mode=0755
+
+- name: Install govc
+  become: yes
+  command: mv /tmp/govc_linux_amd64.gz /usr/local/bin/govc
