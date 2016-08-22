@@ -9,7 +9,7 @@
 
 - name: chmod +x govc
   become: yes
-  file: path=/tmp/govc_linux_amd64.gz
+  file: path=/tmp/govc_linux_amd64
         state=file
         mode=0755
 
