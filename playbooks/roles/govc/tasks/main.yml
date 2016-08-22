@@ -15,4 +15,4 @@
 
 - name: Install govc
   become: yes
-  command: mv /tmp/govc_linux_amd64.gz /usr/local/bin/govc
+  command: mv /tmp/govc_linux_amd64 /usr/local/bin/govc
