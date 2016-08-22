@@ -1,0 +1,13 @@
+- name: Remove default sudo PATH
+  become: yes
+  lineinfile: dest=/etc/sudoers
+              state=absent
+              regexp="secure_path"
+
+- name: Add new default sudo PATH
+  become: yes
+  lineinfile: "
+    dest=/etc/sudoers
+    state=present
+    line='Defaults secure_path=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin\"'
+    validate='visudo -cf %s'"

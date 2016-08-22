@@ -8,3 +8,4 @@
   roles:
     - docker-systemd-vmware
     - dronecli
+    - gosudo
