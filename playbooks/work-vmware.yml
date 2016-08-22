@@ -9,3 +9,4 @@
     - docker-systemd-vmware
     - dronecli
     - gosudo
+    - govc

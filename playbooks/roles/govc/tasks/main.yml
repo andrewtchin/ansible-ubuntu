@@ -1,0 +1,16 @@
+- name: Download the govc gz
+  get_url: url=https://github.com/vmware/govmomi/releases/download/v0.8.0/govc_linux_amd64.gz
+           dest=/tmp/govc_linux_amd64.gz
+           checksum=sha1sum:367ce7e96126214ab76af22376eacdccb31dc869
+
+- name: Extract the govc tarball
+  become: yes
+  unarchive: src=/tmp/govc_linux_amd64.gz
+             dest=/usr/local/bin/govc
+             copy=no
+
+- name: chmod +x govc
+  become: yes
+  file: path=/usr/local/bin/govc
+        state=file
+        mode=0755
