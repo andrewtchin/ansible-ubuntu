@@ -1,2 +1,2 @@
 - name: Install vim go binaries
-  command: vim -c GoInstallBinaries
+  command: vim -c GoInstallBinaries -c "qa"
