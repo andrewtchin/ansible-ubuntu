@@ -1,0 +1,7 @@
+- name: Install docker-compose
+  become: yes
+  command: curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- name: chmod docker-compose
+  become: yes
+  file: path=/usr/local/bin/docker-compose mode=0755
