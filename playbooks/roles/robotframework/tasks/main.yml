@@ -1,0 +1,3 @@
+- name: Install robot framework
+  pip: name=robotframework state=latest
+  become: yes
