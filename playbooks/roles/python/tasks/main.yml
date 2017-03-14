@@ -11,6 +11,7 @@
     - python-pip
     - python-software-properties
     - python-setuptools
+    - python3-setuptools
 
 - name: Install python packages
   pip: name={{ item }} state=latest
@@ -23,3 +24,9 @@
     - ipython
     - pylint
     - virtualenv
+
+- name: Install pip3
+  easy_install:
+    executable: easy_install3
+    name: pip3
+    state: latest
