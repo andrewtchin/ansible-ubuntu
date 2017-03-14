@@ -1,0 +1,7 @@
+- name: Install Asciinema repository
+  become: yes
+  apt_repository: repo='ppa:zanchey/asciinema' update_cache=yes mode=0644
+
+- name: Install Asciinema
+  become: yes
+  apt: pkg=asciinema state=latest

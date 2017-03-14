@@ -1,0 +1,2 @@
+- name: Install Delve
+  command: go get github.com/derekparker/delve/cmd/dlv

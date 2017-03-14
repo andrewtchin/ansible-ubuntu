@@ -11,4 +11,6 @@
     - dronecli
     - gosudo
     - govc
+    - delve
     - robotframework
+    - asciinema
