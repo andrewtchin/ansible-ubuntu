@@ -1,0 +1,7 @@
+- name: "Install antigen signing key"
+  become: yes
+  apt_key: url=http://download.opensuse.org/repositories/shells:zsh-users:antigen/xUbuntu_16.10/Release.key state=present
+
+- name: "Install antigen"
+  become: yes
+  apt: name=antigen update_cache=yes
