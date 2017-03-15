@@ -1,5 +1,5 @@
 - name: "Install go tools"
-  command: chdir=/usr/local/go/bin
+  command: chdir=/usr/local/go/bin {{ item }}
   with_items:
   - go get -u github.com/nsf/gocode
   - go get -u github.com/rogpeppe/godef
