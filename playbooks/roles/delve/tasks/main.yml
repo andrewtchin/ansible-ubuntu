@@ -1,2 +1,4 @@
 - name: Install Delve
-  command: /usr/local/go/bin/go get github.com/derekparker/delve/cmd/dlv
+  command: chdir=/usr/local/go/bin
+  with_items:
+  - go get -u github.com/derekparker/delve/cmd/dlv

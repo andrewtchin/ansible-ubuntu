@@ -12,5 +12,6 @@
     - gosudo
     - govc
     - delve
+    - gotools
     - robotframework
     - asciinema
