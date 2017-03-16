@@ -5,6 +5,12 @@
     mode: 0644
     checksum: sha256:97892375e756fd29a304bd8cd9ffb256c2e7c8fd759e12a55a6336e15100ad75
 
+- name: Create temp dir
+  file:
+    path: /tmp/docker-1.13.1
+    state: directory
+    mode: 0777
+
 - name: Unarchive docker
   unarchive:
     src: /tmp/docker-1.13.1.tgz
