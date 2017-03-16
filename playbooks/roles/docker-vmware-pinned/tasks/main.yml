@@ -5,8 +5,14 @@
     mode: 0644
     checksum: sha256:97892375e756fd29a304bd8cd9ffb256c2e7c8fd759e12a55a6336e15100ad75
 
-- name: Install Docker client in /usr/local/bin
-  become: yes
+- name: Unarchive docker
   unarchive:
     src: /tmp/docker-1.13.1.tgz
+    dest: /tmp/docker-1.13.1
+
+- name: Install Docker client in /usr/local/bin
+  become: yes
+  copy:
+    src: /tmp/docker-1.13.1/docker/
     dest: /usr/local/bin
+    mode: 0755
