@@ -1,11 +1,18 @@
-- name: Install docker environment file
+- name: "Install docker environment file"
   become: yes
   copy: src="docker" dest="/etc/default/docker" owner=root group=root mode=0644
 
-- name: Create systemd docker dropin directory
+- name: "Create systemd docker dropin directory"
   become: yes
   file: path="/etc/systemd/system/docker.service.d" state=directory mode=0755
 
-- name: Configure systemd docker
+- name: "Configure systemd docker"
   become: yes
   copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644
+
+- name: "Restart docker daemon"
+  become: yes
+  systemd:
+    name: docker
+    daemon_reload: yes
+    state: reloaded
