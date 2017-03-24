@@ -17,3 +17,4 @@
     - robotframework
     - asciinema
     - packer
+    - disable-idle-screen
