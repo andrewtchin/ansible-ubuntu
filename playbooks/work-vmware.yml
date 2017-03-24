@@ -6,8 +6,8 @@
   gather_facts: yes
 
   roles:
-    - docker-systemd-vmware
     - docker-vmware-pinned
+    - docker-systemd-vmware
     - docker-compose
     - dronecli
     - gosudo
