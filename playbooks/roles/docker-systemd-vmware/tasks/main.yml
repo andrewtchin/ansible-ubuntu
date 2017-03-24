@@ -15,4 +15,4 @@
   systemd:
     name: docker
     daemon_reload: yes
-    state: reloaded
+    state: restarted
