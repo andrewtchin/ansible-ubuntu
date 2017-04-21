@@ -3,7 +3,9 @@
 
 - name: "Install Google Linux signing key"
   become: yes
-  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+  apt_key:
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    state: present
 
 - name: "Install Google Chrome repo"
   become: yes
@@ -11,4 +13,7 @@
 
 - name: "Install Google Chrome"
   become: yes
-  apt: name=google-chrome-stable update_cache=yes
+  apt:
+    name: google-chrome-stable
+    state: latest
+    update_cache: yes
