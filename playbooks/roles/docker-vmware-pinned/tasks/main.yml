@@ -1,24 +1,24 @@
-- name: Get Docker client 1.13
+- name: Get Docker client 1.13.0
   get_url:
-    url: https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz
-    dest: /tmp/docker-1.13.1.tgz
+    url: https://get.docker.com/builds/Linux/x86_64/docker-1.13.0.tgz
+    dest: /tmp/docker-1.13.0.tgz
     mode: 0644
-    checksum: sha256:97892375e756fd29a304bd8cd9ffb256c2e7c8fd759e12a55a6336e15100ad75
+    checksum: sha256:fc194bb95640b1396283e5b23b5ff9d1b69a5e418b5b3d774f303a7642162ad6
 
 - name: Create temp dir
   file:
-    path: /tmp/docker-1.13.1
+    path: /tmp/docker-1.13.0
     state: directory
     mode: 0777
 
 - name: Unarchive docker
   unarchive:
-    src: /tmp/docker-1.13.1.tgz
-    dest: /tmp/docker-1.13.1
+    src: /tmp/docker-1.13.0.tgz
+    dest: /tmp/docker-1.13.0
 
 - name: Install Docker client in /usr/local/bin
   become: yes
   copy:
-    src: /tmp/docker-1.13.1/docker/
+    src: /tmp/docker-1.13.0/docker/
     dest: /usr/local/bin
     mode: 0755
