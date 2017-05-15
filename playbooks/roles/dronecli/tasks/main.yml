@@ -1,6 +1,8 @@
 - name: Download the Drone CLI tarball
-  get_url: url=http://downloads.drone.io/drone-cli/drone_linux_amd64.tar.gz
-           dest=/tmp/drone_linux_amd64.tar.gz
+  get_url:
+    url: http://downloads.drone.io/release/linux/amd64/drone.tar.gz
+    dest: /tmp/drone_linux_amd64.tar.gz
+    checksum: sha256:f6ea4355779da52dc96f573ffba850abedb598b4063a3764b4f573e8d46ce793
 
 - name: Uninstall current Drone version if present
   become: yes
