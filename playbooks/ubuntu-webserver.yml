@@ -1,0 +1,12 @@
+---
+- name: Configure Ubuntu Server as webserver.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    #    - common
+    #    - set-hostname
+    #    - ssh
+    #    - ufw
+    #    - server
+    - nginx
