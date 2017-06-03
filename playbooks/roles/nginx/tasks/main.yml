@@ -1,6 +1,8 @@
 - name: Add nginx apt key
   become: yes
-  apt_key: url=http://nginx.org/keys/nginx_signing.key state=present
+  apt_key:
+    url: http://nginx.org/keys/nginx_signing.key
+    state: present
 
 - name: Add nginx repo
   become: yes
@@ -9,10 +11,17 @@
     line="deb http://nginx.org/packages/ubuntu/ {{ ansible_distribution_release }} nginx"
 
 - name: Update apt cache
+  become: yes
   apt: update_cache=yes
 
 - name: Install nginx
-  apt: pkg=nginx state=latest
+  become: yes
+  apt:
+    pkg: nginx
+    state: latest
 
 - name: Start nginx
-  service: name=nginx state=started
+  become: yes
+  service:
+    name: nginx
+    state: started
