@@ -4,9 +4,9 @@
   gather_facts: yes
 
   roles:
-    #    - common
-    #    - set-hostname
-    #    - ssh
-    #    - ufw
-    #    - server
+    - common
+    - ssh
+    - ufw
     - nginx
+    - nginx-conf-static
+    - lets-encrypt

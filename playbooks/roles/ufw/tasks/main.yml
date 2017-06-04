@@ -1,11 +1,23 @@
 - name: Enable UFW with default reject
   become: yes
-  ufw: state=enabled direction=incoming policy=reject log=yes
+  ufw:
+    state: enabled
+    direction: incoming
+    policy: reject
+    log: yes
 
 - name: Enable UFW logging
   become: yes
-  ufw: logging=on direction=incoming
+  ufw:
+    logging: on
+    direction: incoming
 
 - name: Allow SSH rate limited
   become: yes
-  ufw: rule=limit direction=in from_ip=any to_ip=any port={{ ssh_port }} proto=tcp
+  ufw:
+    rule: limit
+    direction: in
+    from_ip: any
+    to_ip: any
+    port: "{{ ssh_port }}"
+    proto: tcp
