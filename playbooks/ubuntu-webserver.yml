@@ -10,3 +10,5 @@
     - nginx
     - nginx-conf-static
     - lets-encrypt
+    - user
+    - authorized-keys

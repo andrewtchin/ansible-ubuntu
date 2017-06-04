@@ -23,6 +23,7 @@
     - ufw
     - unzip
     - vim
+    - whois
     - zip
     - zsh
 
