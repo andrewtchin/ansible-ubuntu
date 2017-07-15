@@ -1,0 +1,4 @@
+---
+ufw_log_level: high
+ufw_allow_ports: [ 80, 443 ]
+ufw_limit_ports: [ 22 ]
