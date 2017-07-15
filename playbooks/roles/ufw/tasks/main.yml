@@ -9,15 +9,31 @@
 - name: Enable UFW logging
   become: yes
   ufw:
-    logging: on
+    logging: "{{ ufw_log_level }}"
     direction: incoming
 
-- name: Allow SSH rate limited
+- name: Rate limit specified ports
   become: yes
   ufw:
     rule: limit
     direction: in
     from_ip: any
     to_ip: any
-    port: "{{ ssh_port }}"
+    port: "{{ item }}"
     proto: tcp
+  with_items:
+    - "{{ ufw_limit_ports }}"
+  when: ufw_limit_ports
+
+- name: Allow specified ports
+  become: yes
+  ufw:
+    rule: allow
+    direction: in
+    from_ip: any
+    to_ip: any
+    port: "{{ item }}"
+    proto: tcp
+  with_items:
+    - "{{ ufw_allow_ports }}"
+  when: ufw_allow_ports

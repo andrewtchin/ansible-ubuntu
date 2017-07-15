@@ -22,26 +22,6 @@
     group: www-data
     mode: 0755
 
-- name: UFW allow port 80
-  become: yes
-  ufw:
-    rule: allow
-    direction: in
-    from_ip: any
-    to_ip: any
-    port: 80
-    proto: tcp
-
-- name: UFW allow port 443
-  become: yes
-  ufw:
-    rule: allow
-    direction: in
-    from_ip: any
-    to_ip: any
-    port: 443
-    proto: tcp
-
 - name: Restart nginx
   become: yes
   service:
