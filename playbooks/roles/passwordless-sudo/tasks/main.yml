@@ -1,0 +1,15 @@
+- name: Ensure sudo group
+  become: yes
+  group:
+    name: sudo
+    state: present
+
+- name: "Set passwordless sudo for {{ item }}"
+  become: yes
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    line: '{{ item }} ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+  with_items: "{{ passwordless_sudoers }}"
+  when: passwordless_sudoers is defined

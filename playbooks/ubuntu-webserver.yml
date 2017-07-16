@@ -12,3 +12,4 @@
     - lets-encrypt
     - user
     - authorized-keys
+    - passwordless-sudo

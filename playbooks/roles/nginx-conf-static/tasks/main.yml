@@ -13,14 +13,78 @@
     group: root
     mode: 0644
 
-- name: Make data dir
+- name: Make www data dir
   become: yes
   file:
-    path: /data/www
+    path: /var/www
     state: directory
     owner: www-data
     group: www-data
     mode: 0755
+
+- name: "Make sites-available directory"
+  become: yes
+  file:
+    path: /etc/nginx/sites-available
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Make sites-enabled directory"
+  become: yes
+  file:
+    path: /etc/nginx/sites-enabled
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Make data dir for {{ item }}"
+  become: yes
+  file:
+    path: "/var/www/{{ item }}"
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0755
+  with_items:
+    - "{{ nginx_sites_available }}"
+  when: nginx_sites_available is defined
+
+- name: "Copy default index for {{ item }}"
+  become: yes
+  template:
+    src: index.html.j2
+    dest: "/var/www/{{ item }}/index.html"
+    owner: www-data
+    group: www-data
+    mode: 0644
+  with_items:
+    - "{{ nginx_sites_available }}"
+  when: nginx_sites_available is defined
+
+- name: "Install sites-available for {{ item }}"
+  become: yes
+  template:
+    src: site_available.j2
+    dest: "/etc/nginx/sites-available/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - "{{ nginx_sites_available }}"
+  when: nginx_sites_available is defined
+
+- name: "Enable sites-avaailable"
+  become: yes
+  file:
+    src: "/etc/nginx/sites-available/{{ item }}"
+    dest: "/etc/nginx/sites-enabled/{{ item }}"
+    state: link
+  with_items:
+    - "{{ nginx_sites_available }}"
+  when: nginx_sites_available is defined
 
 - name: Restart nginx
   become: yes
