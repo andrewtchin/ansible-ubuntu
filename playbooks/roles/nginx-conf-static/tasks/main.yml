@@ -1,10 +1,23 @@
-- name: Remove nginx default conf
+- name: "Make ssl directory"
+  become: yes
+  file:
+    path: /etc/nginx/ssl
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: "Generate nginx DH param"
+  become: yes
+  command: openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
+
+- name: "Remove nginx default conf"
   become: yes
   file:
     path: /etc/nginx/conf.d/default.conf
     state: absent
 
-- name: Install nginx static conf
+- name: "Install nginx static conf"
   become: yes
   template:
     src: nginx.conf.j2
@@ -13,7 +26,7 @@
     group: root
     mode: 0644
 
-- name: Make www data dir
+- name: "Make www data directory"
   become: yes
   file:
     path: /var/www
@@ -86,7 +99,7 @@
     - "{{ nginx_sites_available }}"
   when: nginx_sites_available is defined
 
-- name: Restart nginx
+- name: "Restart nginx"
   become: yes
   service:
     name: nginx
