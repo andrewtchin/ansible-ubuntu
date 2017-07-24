@@ -1,3 +1,11 @@
-- name: Install robot framework
-  pip: name=robotframework state=latest
+- name: Install Robot Framework
   become: yes
+  pip:
+    name: robotframework
+    state: latest
+
+- name: Install Selenium
+  become: yes
+  pip:
+    name: robotframework-selenium2library
+    state: latest
