@@ -1,2 +1,1 @@
 DOCKER_OPTS="--dns 10.118.81.1 --dns 8.8.8.8 "
-http_proxy="http://proxy.vmware.com:3128/"
