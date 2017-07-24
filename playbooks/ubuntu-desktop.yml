@@ -6,7 +6,8 @@
   gather_facts: yes
 
   roles:
-    - desktop-apt
+    # TODO fix
+    #    - desktop-apt
     - remap-esc
     - chrome
     - firefox

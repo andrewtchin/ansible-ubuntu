@@ -29,6 +29,7 @@
     - whois
     - zip
     - zsh
+    - python-pip # TODO remove
 
 - name: Enable and start NTP service
   become: yes
