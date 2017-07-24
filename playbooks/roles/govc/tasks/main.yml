@@ -1,7 +1,7 @@
 - name: Download the govc gz
-  get_url: url=https://github.com/vmware/govmomi/releases/download/v0.12.1/govc_linux_amd64.gz
+  get_url: url=https://github.com/vmware/govmomi/releases/download/v0.15.0/govc_linux_amd64.gz
            dest=/tmp/govc_linux_amd64.gz
-           checksum=sha1:03d239ba1e2cc200752f8a6fc9a07c8711aa5955
+           checksum=sha1:79db9661d65b265856976b360ee4ce84de761fa9
 
 - name: Uncompress govc
   become: yes
