@@ -6,7 +6,7 @@
   become: yes
   copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644
 
-- name "Install daemon.json"
+- name: "Install daemon.json"
   become: yes
   copy:
     src: daemon.json
