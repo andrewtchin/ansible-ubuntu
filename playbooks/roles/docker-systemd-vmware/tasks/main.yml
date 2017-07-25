@@ -1,12 +1,13 @@
-- name: "Create systemd docker dropin directory"
-  become: yes
-  file: path="/etc/systemd/system/docker.service.d" state=directory mode=0755
+# FIXME Running pinned Docker version is broken
+# - name: "Create systemd docker dropin directory"
+#   become: yes
+#   file: path="/etc/systemd/system/docker.service.d" state=directory mode=0755
+#
+# - name: "Configure systemd docker"
+#   become: yes
+#   copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644
 
-- name: "Configure systemd docker"
-  become: yes
-  copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644
-
-- name: "Install daemon.json"
+- name: "Install daemon.json - configure DNS"
   become: yes
   copy:
     src: daemon.json
