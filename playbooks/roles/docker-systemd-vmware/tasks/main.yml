@@ -1,7 +1,3 @@
-- name: "Install docker environment file"
-  become: yes
-  copy: src="docker" dest="/etc/default/docker" owner=root group=root mode=0644
-
 - name: "Create systemd docker dropin directory"
   become: yes
   file: path="/etc/systemd/system/docker.service.d" state=directory mode=0755
@@ -9,6 +5,15 @@
 - name: "Configure systemd docker"
   become: yes
   copy: src="systemd-docker.conf" dest="/etc/systemd/system/docker.service.d/docker.conf" owner=root group=root mode=0644
+
+- name "Install daemon.json"
+  become: yes
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: 0644
 
 - name: "Restart docker daemon"
   become: yes
