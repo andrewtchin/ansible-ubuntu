@@ -53,7 +53,7 @@
     group: root
     mode: 0755
 
-- name: "Make data dir for {{ item }}"
+- name: "Make data dir for sites"
   become: yes
   file:
     path: "/var/www/{{ item }}"
@@ -65,7 +65,7 @@
     - "{{ nginx_sites_available }}"
   when: nginx_sites_available is defined
 
-- name: "Copy default index for {{ item }}"
+- name: "Copy default index for sites"
   become: yes
   template:
     src: index.html.j2
@@ -77,7 +77,7 @@
     - "{{ nginx_sites_available }}"
   when: nginx_sites_available is defined
 
-- name: "Install sites-available for {{ item }}"
+- name: "Install sites-available for sites"
   become: yes
   template:
     src: site_available.j2
@@ -89,7 +89,7 @@
     - "{{ nginx_sites_available }}"
   when: nginx_sites_available is defined
 
-- name: "Enable sites-avaailable"
+- name: "Enable sites-available"
   become: yes
   file:
     src: "/etc/nginx/sites-available/{{ item }}"

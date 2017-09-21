@@ -5,11 +5,11 @@
 
   roles:
     - common
-    - ssh
     - ufw
-    - nginx
-    - nginx-conf-static
-    - lets-encrypt
     - user
     - authorized-keys
     - passwordless-sudo
+    - nginx
+    - nginx-conf-static
+    - lets-encrypt
+    - ssh
