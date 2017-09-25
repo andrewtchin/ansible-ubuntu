@@ -12,4 +12,5 @@
     - nginx
     - nginx-conf-static
     - lets-encrypt
+    - lets-encrypt-nginx
     - ssh
