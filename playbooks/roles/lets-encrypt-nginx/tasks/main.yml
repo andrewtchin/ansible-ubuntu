@@ -1,2 +1,13 @@
-- name: Start certbot nginx
-  command: certbot --nginx
+- name: Get cert for each site
+  become: yes
+  command: "certbot --nginx --non-interactive --agree-tos --no-redirect -m letsencrypt@{{ item }} -d {{ item }} -d www.{{ item }}"
+  with_items:
+    - "{{ nginx_sites_available }}"
+  when: nginx_sites_available is defined
+
+- name: Set certificate renewal cron
+  become: yes
+  cron:
+    minute: "0"
+    hour: "12"
+    job: "/usr/bin/certbot renew --quiet"
