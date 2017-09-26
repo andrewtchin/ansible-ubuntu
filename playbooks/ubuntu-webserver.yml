@@ -9,6 +9,7 @@
     - user
     - authorized-keys
     - passwordless-sudo
+    - unattended-upgrades
     - nginx
     - nginx-conf-static
     - lets-encrypt
