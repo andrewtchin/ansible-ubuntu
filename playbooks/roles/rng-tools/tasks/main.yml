@@ -1,0 +1,21 @@
+- name: "Install rng-tools"
+  become: yes
+  apt:
+    pkg: rng-tools
+    state: latest
+
+- name: "Configure rng-tools with TrueRNG device"
+  become: yes
+  lineinfile:
+    dest: "/etc/default/rng-tools"
+    regexp: "HRNGDEVICE=/dev/TrueRNG"
+    state: present
+  when: truerng_present
+
+- name: "Enable rng-tools"
+  become: yes
+  service:
+    name: rng-tools
+    state: started
+    enabled: yes
+  when: truerng_present

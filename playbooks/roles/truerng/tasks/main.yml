@@ -1,0 +1,24 @@
+- name: "Unarchive TrueRNG udev rules"
+  become: yes
+  unarchive:
+    src: "TrueRNG-Linux-udev-rules.tar.gz"
+    dest: "/etc/udev/rules.d/"
+
+# - name: "Test if TrueRNG is present"
+#   command: "ls -l /dev/TrueRNG"
+#   register: truerng_dev
+#   ignore_errors: True
+#
+# - name: "Test if TrueRNG is present"
+#   shell: echo "TrueRNG device found"
+#   when: truerng_dev.stdout.find('No such file or directory') != -1
+#   register: truerng
+
+- stat:
+    path: /dev/TrueRNG
+  register: truerng
+
+- name: "Test if TrueRNG is present"
+  shell: echo "TrueRNG device present"
+  when: truerng.stat.exists == True
+  register: truerng_present
