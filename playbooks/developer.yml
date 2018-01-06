@@ -6,6 +6,7 @@
   roles:
     - dev-directory
     - developer-tools-apt
+    - atom
     - docker
     - emacs
     - python
