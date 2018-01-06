@@ -8,7 +8,6 @@
   roles:
     - docker
     - docker-version-manager
-    - docker-vmware
     - docker-systemd-vmware
     - docker-compose
     - dronecli
