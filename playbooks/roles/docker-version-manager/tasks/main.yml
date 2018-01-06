@@ -1,0 +1,2 @@
+- name: Install Docker Version Manager
+  command: curl -sL https://howtowhale.github.io/dvm/downloads/latest/install.sh | sh

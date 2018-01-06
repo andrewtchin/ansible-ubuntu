@@ -1,0 +1,2 @@
+- name: Install Docker 1.13.0 with DVM
+  command: source /home/{{ ansible_env.USER }}/.dvm/dvm.sh; dvm install 1.13.0
