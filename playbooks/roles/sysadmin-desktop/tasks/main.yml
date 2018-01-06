@@ -1,4 +1,4 @@
-- name: Install desktop packages
+- name: Install sysadmin desktop packages
   become: yes
   apt: pkg={{ item }} state=latest
   with_items:
