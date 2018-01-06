@@ -1,2 +1,5 @@
+- name: Get Docker Version Manager install script
+  get_url: url=https://howtowhale.github.io/dvm/downloads/latest/install.sh dest=/tmp/install_dvm.sh mode=0755
+
 - name: Install Docker Version Manager
-  command: curl -sL https://howtowhale.github.io/dvm/downloads/latest/install.sh | sh
+  shell: /tmp/install_dvm.sh
