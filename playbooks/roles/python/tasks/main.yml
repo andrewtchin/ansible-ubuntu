@@ -1,9 +1,7 @@
-- name: Update pip via easy_install
-  become: yes
-  shell: easy_install --upgrade pip
-
 - name: Install python
-  apt: pkg={{ item }} state=latest
+  apt:
+    pkg: "{{ item }}"
+    state: latest
   become: yes
   with_items:
     - python
@@ -15,7 +13,9 @@
     - python3-pip
 
 - name: Install python packages
-  pip: name={{ item }} state=latest
+  pip:
+    name: "{{ item }}"
+    state: latest
   become: yes
   with_items:
     - awscli
