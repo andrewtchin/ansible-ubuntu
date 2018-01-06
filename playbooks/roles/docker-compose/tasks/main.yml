@@ -1,6 +1,9 @@
 - name: Install docker-compose
   become: yes
-  command: curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.11.2/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    checksum: sha256:8d55adce12461c9f2abd907da1138b3e925919212611a54c94c4794ab0a975fc
 
 - name: chmod docker-compose
   become: yes
