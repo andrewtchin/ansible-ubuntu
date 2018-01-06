@@ -6,7 +6,9 @@
   gather_facts: yes
 
   roles:
-    - docker-vmware-pinned
+    - docker
+    - docker-version-manager
+    - docker-vmware
     - docker-systemd-vmware
     - docker-compose
     - dronecli
@@ -17,6 +19,5 @@
     - cfssl
     - robotframework
     - asciinema
-    - packer
     - disable-idle-screen
     - gcloud
