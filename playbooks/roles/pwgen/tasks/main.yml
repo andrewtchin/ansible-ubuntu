@@ -1,0 +1,5 @@
+- name: Install pwgen
+  become: yes
+  apt:
+    pkg: pwgen
+    state: latest
