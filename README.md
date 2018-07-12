@@ -50,7 +50,7 @@ ansible-playbook -vvv ubuntu-webserver.yml --ask-become-pass
 ### ubuntu-browsing
 
 ```
-ansible-playbook -vvv ubuntu-browsing.yml --inventory inventory --connection local --ask-become-pass
+ansible-playbook -vvv ubuntu-browsing.yml --connection local --ask-become-pass
 ```
 
 ## TODO

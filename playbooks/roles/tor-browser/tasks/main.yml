@@ -32,13 +32,13 @@
 - name: "Unarchive TBB"
   archive:
     src: "/opt/tbb/tor-browser-linux64.tar.xz"
-    dest: "/opt/tbb
+    dest: "/opt/tbb"
     format: xz
     mode: 0644
 
 - name: "Unarchive TBB"
   archive:
     src: "/opt/tbb/tor-browser-linux64.tar"
-    dest: "/opt/tbb
+    dest: "/opt/tbb"
     format: tar
     mode: 0644
