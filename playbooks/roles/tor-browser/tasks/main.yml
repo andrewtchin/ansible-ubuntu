@@ -28,6 +28,7 @@
 
 - debug:
     msg: "{{ sig_result.stdout }}"
+    msg: "{{ sig_result.stderr }}"
 
 - name: "Fail on bad signature"
   fail:
@@ -38,8 +39,4 @@
   command: "unxz /opt/tbb/tor-browser-linux64.tar.xz"
 
 - name: "Unarchive TBB"
-  archive:
-    path: "/opt/tbb/tor-browser-linux64.tar"
-    dest: "/opt/tbb"
-    format: tar
-    mode: 0644
+  command: "tar -C /opt/tbb/ xf /opt/tbb/tor-browser-linux64.tar"
