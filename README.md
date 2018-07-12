@@ -20,17 +20,6 @@ Developer
 ansible-playbook -vvv playbooks/developer.yml --ask-become-pass
 ```
 
-Work
-```
-ansible-playbook -vvv playbooks/work-vmware.yml --ask-become-pass
-```
-
-Work Docker Fix
-```
-ansible-playbook -vvv playbooks/vmware-docker.yml --ask-sudo-pass
-```
-
-
 ## Playbooks
 
 ### tiddlywiki
@@ -56,6 +45,12 @@ ansible-playbook -vvv playbooks/nut.yml --ask-become-pass --extra-vars=@vars/nut
 ### ubuntu-webserver
 ```
 ansible-playbook -vvv ubuntu-webserver.yml --ask-become-pass
+```
+
+### ubuntu-browsing
+
+```
+ansible-playbook -vvv ubuntu-browsing.yml --inventory inventory --connection local --ask-become-pass
 ```
 
 ## TODO

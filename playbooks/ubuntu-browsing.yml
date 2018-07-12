@@ -1,0 +1,13 @@
+---
+- include: common.yml
+
+- name: Configure Ubuntu Browsing VM.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - remap-esc
+    - chrome
+    - firefox
+    - tor-browser
+    - pwgen

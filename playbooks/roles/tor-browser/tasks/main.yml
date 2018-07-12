@@ -1,0 +1,44 @@
+- name: "Make tbb directory"
+  become: yes
+  file:
+    path: /opt/tbb
+    state: directory
+    mode: 0755
+
+- name: "Get Tor Browser"
+  get_url:
+    url: "https://www.torproject.org/dist/torbrowser/7.5.6/tor-browser-linux64-7.5.6_en-US.tar.xz"
+    checksum: sha256:bafcde14e53987a7df17f88d69f5aec4bd65312720df931080cae7e8caa3e71f
+    dest: "/opt/tbb/tor-browser-linux64.tar.xz"
+
+- name: "Get Tor Browser Signature"
+  get_url:
+    url: "https://www.torproject.org/dist/torbrowser/7.5.6/tor-browser-linux64-7.5.6_en-US.tar.xz.asc"
+    checksum: sha256:76f2f41cd651d13b49fd39ffa595f515af44f3a82373ee7ddd56f2cbc60c1901
+    dest: "/opt/tbb/tor-browser-linux64.tar.xz.asc"
+
+- name: "Get GPG Key"
+  command: "gpg --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290"
+
+- name: "Verify Signature"
+  command: "gpg --verify /opt/tbb/tor-browser-linux64.tar.xz.asc"
+  register: sig_result
+
+- name: "Fail on bad signature"
+  fail:
+    msg: "Failed to verify signature"
+  when: sig_result.rc != 0
+
+- name: "Unarchive TBB"
+  archive:
+    src: "/opt/tbb/tor-browser-linux64.tar.xz"
+    dest: "/opt/tbb
+    format: xz
+    mode: 0644
+
+- name: "Unarchive TBB"
+  archive:
+    src: "/opt/tbb/tor-browser-linux64.tar"
+    dest: "/opt/tbb
+    format: tar
+    mode: 0644
