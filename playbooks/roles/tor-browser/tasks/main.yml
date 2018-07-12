@@ -3,7 +3,9 @@
   file:
     path: /opt/tbb
     state: directory
-    mode: 0755
+    mode: 0775
+    owner: "{{ ansible_env.USERNAME }}"
+    group: "{{ ansible_env.USERNAME }}"
 
 - name: "Get Tor Browser"
   get_url:
@@ -24,21 +26,20 @@
   command: "gpg --verify /opt/tbb/tor-browser-linux64.tar.xz.asc"
   register: sig_result
 
+- debug:
+    msg: "{{ sig_result.stdout }}"
+
 - name: "Fail on bad signature"
   fail:
     msg: "Failed to verify signature"
   when: sig_result.rc != 0
 
 - name: "Unarchive TBB"
-  archive:
-    src: "/opt/tbb/tor-browser-linux64.tar.xz"
-    dest: "/opt/tbb"
-    format: xz
-    mode: 0644
+  command: "unxz /opt/tbb/tor-browser-linux64.tar.xz"
 
 - name: "Unarchive TBB"
   archive:
-    src: "/opt/tbb/tor-browser-linux64.tar"
+    path: "/opt/tbb/tor-browser-linux64.tar"
     dest: "/opt/tbb"
     format: tar
     mode: 0644

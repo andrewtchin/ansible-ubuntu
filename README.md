@@ -5,7 +5,7 @@
 ### Run locally
 
 ```
--c local -i inventory
+--connection local --inventory `localhost,`
 ```
 
 ### ubuntu.yml
@@ -50,7 +50,8 @@ ansible-playbook -vvv ubuntu-webserver.yml --ask-become-pass
 ### ubuntu-browsing
 
 ```
-ansible-playbook -vvv ubuntu-browsing.yml --connection local --ask-become-pass
+ansible-playbook -vvv ubuntu-browsing.yml --inventory inventory --ask-become-pass
+ansible-playbook -vvv ubuntu-browsing.yml --inventory 'localhost,' --connection local --ask-become-pass
 ```
 
 ## TODO
