@@ -1,0 +1,9 @@
+- name: Install neovim repository
+  become: yes
+  apt_repository: repo='ppa:neovim-ppa/stable' update_cache=yes mode=0644
+
+- name: Install neovim
+  become: yes
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - neovim
