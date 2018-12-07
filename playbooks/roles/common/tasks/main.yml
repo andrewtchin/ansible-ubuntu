@@ -20,6 +20,7 @@
     - curl
     - debsums
     - ntp
+    - software-properties-common
     - sudo
     - sysstat
     - tmux
