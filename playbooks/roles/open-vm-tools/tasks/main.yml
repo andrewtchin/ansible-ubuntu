@@ -1,0 +1,3 @@
+- name: Install open-vm-tools package
+  become: yes
+  apt: pkg=open-vm-tools state=latest
