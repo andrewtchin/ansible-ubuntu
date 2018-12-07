@@ -8,7 +8,6 @@
     - developer-tools-apt
     - atom
     - docker
-    - emacs
     - python
     - golang
     - antigen
