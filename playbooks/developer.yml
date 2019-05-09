@@ -5,6 +5,7 @@
 
   roles:
     - dev-directory
+    - desktop-utils
     - developer-tools-apt
     - atom
     - docker

@@ -6,6 +6,7 @@
   gather_facts: yes
 
   roles:
+    - desktop-utils
     - remap-esc
     - chrome
     - firefox
