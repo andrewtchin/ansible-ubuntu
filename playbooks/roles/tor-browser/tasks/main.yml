@@ -9,14 +9,14 @@
 
 - name: "Get Tor Browser"
   get_url:
-    url: "https://www.torproject.org/dist/torbrowser/8.5.1/tor-browser-linux64-8.5.1_en-US.tar.xz"
-    checksum: sha256:4bc2733408abcc4e90abc61806a63e30c1c5312a39230a3887d40f03f34125d6
+    url: "https://www.torproject.org/dist/torbrowser/8.5.3/tor-browser-linux64-8.5.3_en-US.tar.xz"
+    checksum: sha256:4f2011f83f014abddc1a23ead058efd7b8ec75bfdd23040573b4c6c3be02b496
     dest: "/opt/tbb/tor-browser-linux64.tar.xz"
 
 - name: "Get Tor Browser Signature"
   get_url:
-    url: "https://www.torproject.org/dist/torbrowser/8.5.1/tor-browser-linux64-8.5.1_en-US.tar.xz.asc"
-    checksum: sha256:442e84a6065c6c15700cd084191bcf9e610486d69a68c5b656a18d7f74379d55
+    url: "https://www.torproject.org/dist/torbrowser/8.5.3/tor-browser-linux64-8.5.3_en-US.tar.xz.asc"
+    checksum: sha256:1c9e30ea7f89685517d471146769de8c79dcc48a500ec219e98f2cf16f8a3ac7
     dest: "/opt/tbb/tor-browser-linux64.tar.xz.asc"
 
 - name: "Get GPG Key"
