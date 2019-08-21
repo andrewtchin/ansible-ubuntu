@@ -4,11 +4,11 @@
 
 - name: Install emacs
   become: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - emacs24
-    - emacs24-el
-    - emacs24-common-non-dfsg
+  apt:
+    pkg: ['emacs24',
+          'emacs24-el',
+          'emacs24-common-non-dfsg']
+    state: latest
 
 - name: Install spacemacs
   git: repo=https://github.com/syl20bnr/spacemacs dest=~/.emacs.d

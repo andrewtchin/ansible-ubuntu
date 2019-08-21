@@ -1,12 +1,12 @@
 - name: Install desktop tools
-  apt: pkg={{ item }} state=latest
   become: yes
-  with_items:
-    - curl
-    - gzip
-    - p7zip-full
-    - unrar
-    - unzip
-    - vlc
-    - wget
-    - zip
+  apt:
+    pkg: ['curl',
+          'gzip',
+          'p7zip-full',
+          'unrar',
+          'unzip',
+          'vlc',
+          'wget',
+          'zip']
+    state: latest

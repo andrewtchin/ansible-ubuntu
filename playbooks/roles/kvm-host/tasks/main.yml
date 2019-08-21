@@ -1,10 +1,8 @@
 - name: Install KVM
   become: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-  - qemu-kvm
-  - libvirt-bin
-  - bridge-utils
+  apt:
+    pkg: ['qemu-kvm', 'libvirt-bin', 'bridge-utils']
+    state: latest
 
 - name: Install X2Go repository
   become: yes
@@ -12,10 +10,9 @@
 
 - name: Install X2Go
   become: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - x2goserver
-    - x2goserver-xsession
+  apt:
+    pkg: ['x2goserver', 'x2goserver-xsession']
+    state: latest
 
 - name: Install xfce desktop
   become: yes

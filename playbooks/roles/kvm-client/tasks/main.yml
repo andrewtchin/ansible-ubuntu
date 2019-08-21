@@ -1,6 +1,6 @@
 - name: Install KVM desktop client
   become: yes
-  apt: name={{ item }} state=latest update_cache=yes
-  with_items:
-    - virt-manager
-    - x2goclient
+  apt:
+    pkg: ['virt-manager', 'x2goclient']
+    state: latest
+    update_cache: yes

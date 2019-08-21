@@ -4,6 +4,6 @@
 
 - name: Install neovim
   become: yes
-  apt: pkg={{ item }} state=latest
-  with_items:
-    - neovim
+  apt:
+    pkg: neovim
+    state: latest
