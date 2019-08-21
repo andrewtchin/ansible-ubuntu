@@ -1,0 +1,15 @@
+- name: Get Gitlab repository install script
+  get_url: 
+    url: https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh
+    dest: /tmp/install_gitlab_repo.sh
+    mode: 0755
+
+- name: Add Gitlab repo
+  become: yes
+  shell: /tmp/install_gitlab_repo.sh
+
+- name: Install gitlab-runner
+  become: yes
+  apt:
+    pkg: gitlab-runner
+    state: latest

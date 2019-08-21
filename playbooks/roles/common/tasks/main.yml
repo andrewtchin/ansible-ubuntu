@@ -27,14 +27,9 @@
           'unzip',
           'vim',
           'whois',
-          'zip',
-          'zsh']
+          'zip']
     state: latest
 
 - name: Enable and start NTP service
   become: yes
   service: name=ntp state=started enabled=yes
-
-- name: Change to zsh
-  become: yes
-  shell: 'chsh -s $(which zsh) {{ ansible_env.USER }}'

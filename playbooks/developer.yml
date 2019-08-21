@@ -4,6 +4,7 @@
   gather_facts: yes
 
   roles:
+    - zsh
     - dev-directory
     - desktop-utils
     - developer-tools-apt

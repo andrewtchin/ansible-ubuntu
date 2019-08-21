@@ -1,0 +1,6 @@
+- name: Cleanup unused Docker images
+  become: yes
+  cron:
+    name: "Docker image cleanup"
+    special_time: weekly
+    job: "/usr/bin/docker rmi $(/usr/bin/docker images -aq)"

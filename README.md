@@ -54,5 +54,11 @@ ansible-playbook -vvv ubuntu-browsing.yml --inventory inventory --ask-become-pas
 ansible-playbook -vvv ubuntu-browsing.yml --inventory 'localhost,' --connection local --ask-become-pass
 ```
 
+### ubuntu-gitlab-runner
+
+```
+ansible-playbook -vvv ubuntu-gitlab-runner.yml --inventory '1.1.1.1,' --user ubuntu --ask-become-pass
+```
+
 ## TODO
  - Generate new /etc/ssh/moduli

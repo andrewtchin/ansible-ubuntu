@@ -1,0 +1,14 @@
+---
+- name: Configure Ubuntu as Gitlab Runner.
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - common
+    - ufw
+    - authorized-keys
+    - unattended-upgrades
+    - ssh
+    - docker
+    - gitlab-runner
+    - gitlab-runner-cron-docker-cleanup
