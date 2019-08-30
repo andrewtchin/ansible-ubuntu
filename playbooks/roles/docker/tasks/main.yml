@@ -4,6 +4,8 @@
 - name: Install Docker
   become: yes
   shell: /tmp/install_docker.sh
+  environment:
+    VERSION: '18.09'
 
 - name: Add non-root user to docker group
   become: yes
