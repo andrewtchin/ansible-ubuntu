@@ -26,6 +26,7 @@
           'ufw',
           'unzip',
           'vim',
+          'wget',
           'whois',
           'zip']
     state: latest

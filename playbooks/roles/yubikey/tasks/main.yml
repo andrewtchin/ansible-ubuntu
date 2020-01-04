@@ -1,0 +1,14 @@
+- name: Install yubikey dependencies
+  become: yes
+  apt:
+    pkg: ['wget',
+          'gnupg2',
+          'gnupg-agent',
+          'dirmngr',
+          'cryptsetup',
+          'scdaemon',
+          'pcscd',
+          'secure-delete',
+          'hopenpgp-tools',
+          'yubikey-personalization']
+    state: latest
