@@ -1,5 +1,5 @@
 # See the sshd_config(5) manpage for details
-# Mozilla SSH guidelines https://wiki.mozilla.org/Security/Guidelines/OpenSSH#Modern_.28OpenSSH_6.7.2B.29
+# Mozilla SSH guidelines https://infosec.mozilla.org/guidelines/openssh#Modern
 
 Port {{ ssh_port }}
 
@@ -21,7 +21,8 @@ HostKey /etc/ssh/ssh_host_ecdsa_key
 # Prevent user setting environment options
 PermitUserEnvironment no
 
-# Privilege Separation is turned on for security
+# Use kernel sandbox mechanisms where possible in unprivileged processes
+# Systrace on OpenBSD, Seccomp on Linux, seatbelt on MacOSX/Darwin, rlimit elsewhere.
 UsePrivilegeSeparation sandbox
 
 # Logging
@@ -29,15 +30,14 @@ SyslogFacility AUTH
 LogLevel VERBOSE
 
 # Authentication
-LoginGraceTime 30
-MaxAuthTries 10
+AuthenticationMethods publickey
+#AuthorizedKeysFile	%h/.ssh/authorized_keys
 PasswordAuthentication no
 PermitEmptyPasswords no
 PermitRootLogin no
 StrictModes yes
-
-AuthenticationMethods publickey
-#AuthorizedKeysFile	%h/.ssh/authorized_keys
+LoginGraceTime 30
+MaxAuthTries 10
 
 # Change to yes to enable challenge-response passwords (beware issues with
 # some PAM modules and threads)
@@ -50,10 +50,12 @@ TCPKeepAlive no
 
 X11Forwarding no
 X11DisplayOffset 10
+
 PrintMotd no
 PrintLastLog yes
 
-Subsystem sftp /usr/lib/openssh/sftp-server
+# Log sftp level file access (read/write/etc.) that would not be easily logged otherwise.
+Subsystem sftp  /usr/lib/ssh/sftp-server -f AUTHPRIV -l INFO
 
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will
@@ -69,9 +71,9 @@ UsePAM yes
 # Disable reverse DNS lookup to make SSH start faster
 UseDNS no
 
-# https://wiki.mozilla.org/Security/Guidelines/OpenSSH#Modern_.28OpenSSH_6.7.2B.29
-Ciphers chacha20-poly1305@openssh.com,aes256-ctr
+# https://infosec.mozilla.org/guidelines/openssh#Modern
 KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
 
 # Compatibility config https://github.com/ioerror/duraconf
