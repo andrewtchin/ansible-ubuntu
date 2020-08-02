@@ -18,7 +18,9 @@
   apt:
     pkg: ['curl',
           'debsums',
+          'gnupg2',
           'ntp',
+          'rcm'
           'software-properties-common',
           'sudo',
           'sysstat',

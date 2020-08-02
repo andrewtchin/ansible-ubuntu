@@ -5,7 +5,6 @@
   roles:
     - common
     - zsh
-    - rcm
     - set-hostname
     - solarized
     - ssh

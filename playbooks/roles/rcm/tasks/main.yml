@@ -1,8 +1,0 @@
-- name: Install RCM repository
-  become: yes
-  apt_repository: repo='ppa:martin-frost/thoughtbot-rcm' update_cache=yes mode=0644
-
-- name: Install RCM
-  become: yes
-  apt: pkg=rcm state=latest
-  register: rcm_installed

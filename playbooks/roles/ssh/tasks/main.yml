@@ -43,6 +43,18 @@
     group: root
     mode: 0644
 
-- name: Deactivate short DH moduli
+- name: Remove short DH moduli
   become: yes
-  command: awk '$5 >= 3071' /etc/ssh/moduli > /etc/ssh/moduli.tmp && mv /etc/ssh/moduli.tmp /etc/ssh/moduli
+  command: awk '{if ($5 >= 3071) print > "/tmp/moduli.tmp"}' /etc/ssh/moduli
+
+- name: DH moduli permissions
+  become: yes
+  file:
+    path: /tmp/moduli.tmp
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Set new DH moduli
+  become: yes
+  command: mv /tmp/moduli.tmp /etc/ssh/moduli

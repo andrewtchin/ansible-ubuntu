@@ -20,14 +20,14 @@
     dest: "/opt/tbb/tor-browser-linux64.tar.xz.asc"
 
 - name: "Get GPG Key"
-  command: "gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org"
-  # command: "gpg --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290"
+  command: "gpg2 --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290"
+  # command: "gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org"
 
 - name: "Show fingerprint"
-  command: "gpg --fingerprint 0x4E2C6E8793298290"
+  command: "gpg2 --fingerprint 0x4E2C6E8793298290"
 
 - name: "Verify Signature"
-  command: "gpg --verify /opt/tbb/tor-browser-linux64.tar.xz.asc"
+  command: "gpg2 --verify /opt/tbb/tor-browser-linux64.tar.xz.asc"
   register: sig_result
 
 - debug:
