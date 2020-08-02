@@ -1,0 +1,3 @@
+- name: Install open-vm-tools-desktop package
+  become: yes
+  apt: pkg=open-vm-tools-desktop state=latest
