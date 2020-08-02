@@ -52,6 +52,7 @@ ansible-playbook -vvv ubuntu-webserver.yml --ask-become-pass
 ```
 ansible-playbook -vvv ubuntu-browsing.yml --inventory inventory --ask-become-pass
 ansible-playbook -vvv ubuntu-browsing.yml --inventory 'localhost,' --connection local --ask-become-pass
+ansible-playbook -vvv playbooks/ubuntu-browsing.yml --ask-become-pass -c local --extra-vars=@vars/ubuntu.json -i inventory
 ```
 
 ### ubuntu-gitlab-runner

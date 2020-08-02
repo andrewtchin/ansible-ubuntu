@@ -19,9 +19,20 @@
     checksum: sha256:0a87c92ec35d1b4d871a982a87ca3d9e58c037243edf79af8095678aedeb7bec
     dest: "/opt/tbb/tor-browser-linux64.tar.xz.asc"
 
-- name: "Get GPG Key"
-  command: "gpg2 --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290"
-  # command: "gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org"
+#- name: "Get GPG Key"
+#  command: "gpg2 --keyserver pool.sks-keyservers.net --recv-keys 0x4E2C6E8793298290"
+#  command: "gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org"
+
+- name: "Copy GPG Key"
+  copy:
+    src: key
+    dest: /tmp/tor-key
+    mode: 0644
+    owner: "{{ ansible_env.USERNAME }}"
+    group: "{{ ansible_env.USERNAME }}"
+
+- name: "Import GPG Key"
+  command: "gpg2 --import /tmp/tor-key"
 
 - name: "Show fingerprint"
   command: "gpg2 --fingerprint 0x4E2C6E8793298290"

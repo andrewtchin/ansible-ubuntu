@@ -20,7 +20,7 @@
           'debsums',
           'gnupg2',
           'ntp',
-          'rcm'
+          'rcm',
           'software-properties-common',
           'sudo',
           'sysstat',
