@@ -13,5 +13,5 @@
     - python
     - golang
     - antigen
-    - open-vm-tools
+    - open-vm-tools-desktop
     - neovim
