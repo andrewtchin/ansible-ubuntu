@@ -4,3 +4,9 @@
   with_items:
     - smartmontools
     - rng-tools
+
+- name: Install livepatch
+  become: yes
+  snap:
+    name: canonical-livepatch
+    state: present
