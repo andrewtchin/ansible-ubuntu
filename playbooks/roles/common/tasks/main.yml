@@ -36,3 +36,7 @@
 - name: Enable and start NTP service
   become: yes
   service: name=ntp state=started enabled=yes
+
+- name: Set UTC
+  become: yes
+  command: timedatectl set-timezone UTC
